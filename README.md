@@ -1,24 +1,5 @@
-# README
+# D&D 5th Edition Tools and Databases
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tools and Databases for Dungeons & Dragons 5th Edition
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Project currently contains complete databases for spells, creatures, and creature special abilities, actions, and legendary abilities.
