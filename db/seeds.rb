@@ -60,6 +60,87 @@ creatures_array = JSON.parse(Net::HTTP.get(creatures_uri))
 creatures_array.each do |creature|
 	# check to ensure creature has a name
 	if creature["name"]
+		# create Creature object
+		new_creature = Creature.create(name: creature["name"],
+			size: creature["size"],
+			creature_type: creature["type"],
+			subtype: creature["subtype"],
+			armor_class: creature["armor_class"],
+			hit_points: creature["hit_points"],
+			hit_dice: creature["hit_dice"],
+			speed: creature["speed"],
+			strength: creature["strength"],
+			dexterity: creature["dexterity"],
+			constitution: creature["constitution"],
+			intelligence: creature["intelligence"],
+			wisdom: creature["wisdom"],
+			charisma: creature["charisma"],
+			constitution_save: creature["constitution_save"],
+			intelligence_save: creature["intelligence_save"],
+			wisdom_save: creature["wisdom_save"],
+			history: creature["history"],
+			perception: creature["perception"],
+			damage_vulnerabilities: creature["damage_vulnerabilities"],
+			damage_resistances: creature["damage_resistances"],
+			damage_immunities: creature["damage_immunities"],
+			condition_immunities: creature["condition_immunities"],
+			senses: creature["senses"],
+			languages: creature["languages"],
+			challenge_rating: creature["challenge_rating"])
 
+			# save Creature object
+			new_creature.save
+
+			# create SpecialAbility objects, if any
+			if creature["special_abilities"]
+				creature["special_abilities"].each do |special_ability|
+					# check to ensure special ability has a name
+					if special_ability["name"]
+						# create SpecialAbility object
+						new_special_ability = SpecialAbility.create(name: special_ability["name"],
+							desc: special_ability["desc"],
+							attack_bonus: special_ability["attack_bonus"],
+							damage_dice: special_ability["damage_dice"],
+							damage_bonus: special_ability["damage_bonus"],
+							creature_id: new_creature.id)
+						# save SpecialAbility object
+						new_special_ability.save
+					end
+				end
+			end
+
+			# create Action objects, if any
+			if creature["actions"]
+				creature["actions"].each do |action|
+					# check to ensure action has a name
+					if action["name"]
+						# create Action object
+						new_action = Action.create(name: action["name"],
+							desc: action["desc"],
+							attack_bonus: action["attack_bonus"],
+							damage_dice: action["damage_dice"],
+							damage_bonus: action["damage_bonus"],
+							creature_id: new_creature.id)
+						# save Action object
+						new_action.save
+					end
+				end
+			end
+
+			# create LegendaryAction objects, if any
+			if creature["legendary_actions"]
+				creature["legendary_actions"].each do |legendary_action|
+					# check to ensure legendary action has a name
+					if legendary_action["name"]
+						# create LegendaryAction object
+						new_legendary_action = LegendaryAction.create(name: legendary_action["name"],
+							desc: legendary_action["desc"],
+							attack_bonus: legendary_action["attack_bonus"],
+							creature_id: new_creature.id)
+						# save LegendaryAction object
+						new_legendary_action.save
+					end
+				end
+			end
 	end
 end

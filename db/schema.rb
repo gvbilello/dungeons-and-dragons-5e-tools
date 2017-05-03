@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170503181835) do
   enable_extension "plpgsql"
 
   create_table "actions", force: :cascade do |t|
+    t.integer  "creature_id",  null: false
     t.string   "name"
     t.string   "desc"
     t.integer  "attack_bonus"
@@ -23,12 +24,13 @@ ActiveRecord::Schema.define(version: 20170503181835) do
     t.integer  "damage_bonus"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["creature_id"], name: "index_actions_on_creature_id", using: :btree
   end
 
   create_table "creatures", force: :cascade do |t|
     t.string   "name",                   null: false
     t.string   "size"
-    t.string   "type"
+    t.string   "creature_type"
     t.string   "subtype"
     t.string   "alignment"
     t.integer  "armor_class"
@@ -58,14 +60,17 @@ ActiveRecord::Schema.define(version: 20170503181835) do
   end
 
   create_table "legendary_actions", force: :cascade do |t|
+    t.integer  "creature_id",  null: false
     t.string   "name"
     t.string   "desc"
     t.integer  "attack_bonus"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["creature_id"], name: "index_legendary_actions_on_creature_id", using: :btree
   end
 
   create_table "special_abilities", force: :cascade do |t|
+    t.integer  "creature_id",  null: false
     t.string   "name"
     t.string   "desc"
     t.integer  "attack_bonus"
@@ -73,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170503181835) do
     t.integer  "damage_bonus"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["creature_id"], name: "index_special_abilities_on_creature_id", using: :btree
   end
 
   create_table "spells", force: :cascade do |t|

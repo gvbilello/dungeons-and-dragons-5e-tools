@@ -3,7 +3,7 @@ class CreateCreatures < ActiveRecord::Migration[5.0]
     create_table :creatures do |t|
    		t.string :name, null: false
    		t.string :size
-   		t.string :type
+   		t.string :creature_type
    		t.string :subtype
    		t.string :alignment
    		t.integer :armor_class
