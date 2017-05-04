@@ -1,0 +1,85 @@
+<!-- show spell -->
+<h1><%= @spell.name %></h1>
+<%= @spell.desc.html_safe %>
+<%= @spell.higher_level.html_safe if @spell.higher_level %>
+<table>
+	<tr>
+		<td>Reference Page</td>
+		<td><%= @spell.page.upcase %></td>
+	</tr>
+	<tr>
+		<td>Range</td>
+		<td><%= @spell.range %></td>
+	</tr>
+	<tr>
+		<td>Components</td>
+		<td><%= @spell.components %></td>
+	</tr>
+	<% if @spell.material %>
+		<tr>
+			<td>Material</td>
+			<td><%= @spell.material %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td>Ritual</td>
+		<td><%= @spell.ritual %></td>
+	</tr>
+	<tr>
+		<td>Duration</td>
+		<td><%= @spell.duration %></td>
+	</tr>
+	<tr>
+		<td>Concentration</td>
+		<td><%= @spell.concentration %></td>
+	</tr>
+	<tr>
+		<td>Casting Time</td>
+		<td><%= @spell.casting_time %></td>
+	</tr>
+	<tr>
+		<td>Level</td>
+		<td><%= @spell.level %></td>
+	</tr>
+	<tr>
+		<td>School</td>
+		<td><%= @spell.school %></td>
+	</tr>
+	<tr>
+		<td>Spell Class</td>
+		<td><%= @spell.spell_class %></td>
+	</tr>
+	<% if @spell.archetype %>
+		<tr>
+			<td>Archetype</td>
+			<td><%= @spell.archetype.html_safe %></td>
+		</tr>
+	<% end %>
+	<% if @spell.circles %>
+		<tr>
+			<td>Circles</td>
+			<td><%= @spell.circles %></td>
+		</tr>
+	<% end %>
+	<% if @spell.oaths %>
+		<tr>
+			<td>Oaths</td>
+			<td><%= @spell.oaths %></td>
+		</tr>
+	<% end %>
+	<% if @spell.domains %>
+		<tr>
+			<td>Domains</td>
+			<td><%= @spell.domains %></td>
+		</tr>
+	<% end %>
+	<% if @spell.patrons %>
+		<tr>
+			<td>Patrons</td>
+			<td><%= @spell.patrons %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Previous Spell', spell_path(@spell.id - 1) %>
+<%= link_to 'Next Spell', spell_path(@spell.id + 1) %>
