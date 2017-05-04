@@ -1,0 +1,5 @@
+<!-- show all spells -->
+<h1>All Spells</h1>
+<% @spells.each do |spell| %>
+	<p><%= link_to "#{spell.name}", spell_path(spell.id) %></p>
+<% end %>
