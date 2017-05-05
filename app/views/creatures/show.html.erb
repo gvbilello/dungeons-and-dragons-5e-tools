@@ -55,146 +55,152 @@
 				<td>Charisma</td>
 				<td><%= @creature.charisma %></td>
 			</tr>
-			<th colspan="2">Saving Throws</th>
-			<% if @creature.constitution_save %>
-				<tr>
-					<td>Constitution Save</td>
-					<td><%= @creature.constitution_save %></td>
-				</tr>
+			<% if @creature.has_saving_throws? %>
+				<th colspan="2">Saving Throws</th>
+				<% if @creature.constitution_save %>
+					<tr>
+						<td>Constitution Save</td>
+						<td><%= @creature.constitution_save %></td>
+					</tr>
+				<% end %>
+				<% if @creature.intelligence_save %>
+					<tr>
+						<td>Intelligence Save</td>
+						<td><%= @creature.intelligence_save %></td>
+					</tr>
+				<% end %>
+				<% if @creature.wisdom_save %>
+					<tr>
+						<td>Wisdom Save</td>
+						<td><%= @creature.wisdom_save %></td>
+					</tr>
+				<% end %>
 			<% end %>
-			<% if @creature.intelligence_save %>
-				<tr>
-					<td>Intelligence Save</td>
-					<td><%= @creature.intelligence_save %></td>
-				</tr>
+			<% if @creature.has_skills? %>
+				<th colspan="2">Skills</th>
+				<% if @creature.athletics %>
+					<tr>
+						<td>Athletics</td>
+						<td><%= @creature.athletics %></td>
+					</tr>
+				<% end %>
+				<% if @creature.acrobatics %>
+					<tr>
+						<td>Acrobatics</td>
+						<td><%= @creature.acrobatics %></td>
+					</tr>
+				<% end %>
+				<% if @creature.stealth %>
+					<tr>
+						<td>Stealth</td>
+						<td><%= @creature.stealth %></td>
+					</tr>
+				<% end %>
+				<% if @creature.arcana %>
+					<tr>
+						<td>Arcana</td>
+						<td><%= @creature.arcana %></td>
+					</tr>
+				<% end %>
+				<% if @creature.history %>
+					<tr>
+						<td>History</td>
+						<td><%= @creature.history %></td>
+					</tr>
+				<% end %>
+				<% if @creature.investigation %>
+					<tr>
+						<td>Investigation</td>
+						<td><%= @creature.investigation %></td>
+					</tr>
+				<% end %>
+				<% if @creature.nature %>
+					<tr>
+						<td>Nature</td>
+						<td><%= @creature.nature %></td>
+					</tr>
+				<% end %>
+				<% if @creature.religion %>
+					<tr>
+						<td>Religion</td>
+						<td><%= @creature.religion %></td>
+					</tr>
+				<% end %>
+				<% if @creature.insight %>
+					<tr>
+						<td>Insight</td>
+						<td><%= @creature.insight %></td>
+					</tr>
+				<% end %>
+				<% if @creature.medicine %>
+					<tr>
+						<td>Medicine</td>
+						<td><%= @creature.medicine %></td>
+					</tr>
+				<% end %>
+				<% if @creature.perception %>
+					<tr>
+						<td>Perception</td>
+						<td><%= @creature.perception %></td>
+					</tr>
+				<% end %>
+				<% if @creature.survival %>
+					<tr>
+						<td>Survival</td>
+						<td><%= @creature.survival %></td>
+					</tr>
+				<% end %>
+				<% if @creature.deception %>
+					<tr>
+						<td>Deception</td>
+						<td><%= @creature.deception %></td>
+					</tr>
+				<% end %>
+				<% if @creature.intimidation %>
+					<tr>
+						<td>Intimidation</td>
+						<td><%= @creature.intimidation %></td>
+					</tr>
+				<% end %>
+				<% if @creature.performance %>
+					<tr>
+						<td>Performance</td>
+						<td><%= @creature.performance %></td>
+					</tr>
+				<% end %>
+				<% if @creature.persuasion %>
+					<tr>
+						<td>Persuasion</td>
+						<td><%= @creature.persuasion %></td>
+					</tr>
+				<% end %>
 			<% end %>
-			<% if @creature.wisdom_save %>
-				<tr>
-					<td>Wisdom Save</td>
-					<td><%= @creature.wisdom_save %></td>
-				</tr>
-			<% end %>
-			<th colspan="2">Skills</th>
-			<% if @creature.athletics %>
-				<tr>
-					<td>Athletics</td>
-					<td><%= @creature.athletics %></td>
-				</tr>
-			<% end %>
-			<% if @creature.acrobatics %>
-				<tr>
-					<td>Acrobatics</td>
-					<td><%= @creature.acrobatics %></td>
-				</tr>
-			<% end %>
-			<% if @creature.stealth %>
-				<tr>
-					<td>Stealth</td>
-					<td><%= @creature.stealth %></td>
-				</tr>
-			<% end %>
-			<% if @creature.arcana %>
-				<tr>
-					<td>Arcana</td>
-					<td><%= @creature.arcana %></td>
-				</tr>
-			<% end %>
-			<% if @creature.history %>
-				<tr>
-					<td>History</td>
-					<td><%= @creature.history %></td>
-				</tr>
-			<% end %>
-			<% if @creature.investigation %>
-				<tr>
-					<td>Investigation</td>
-					<td><%= @creature.investigation %></td>
-				</tr>
-			<% end %>
-			<% if @creature.nature %>
-				<tr>
-					<td>Nature</td>
-					<td><%= @creature.nature %></td>
-				</tr>
-			<% end %>
-			<% if @creature.religion %>
-				<tr>
-					<td>Religion</td>
-					<td><%= @creature.religion %></td>
-				</tr>
-			<% end %>
-			<% if @creature.insight %>
-				<tr>
-					<td>Insight</td>
-					<td><%= @creature.insight %></td>
-				</tr>
-			<% end %>
-			<% if @creature.medicine %>
-				<tr>
-					<td>Medicine</td>
-					<td><%= @creature.medicine %></td>
-				</tr>
-			<% end %>
-			<% if @creature.perception %>
-				<tr>
-					<td>Perception</td>
-					<td><%= @creature.perception %></td>
-				</tr>
-			<% end %>
-			<% if @creature.survival %>
-				<tr>
-					<td>Survival</td>
-					<td><%= @creature.survival %></td>
-				</tr>
-			<% end %>
-			<% if @creature.deception %>
-				<tr>
-					<td>Deception</td>
-					<td><%= @creature.deception %></td>
-				</tr>
-			<% end %>
-			<% if @creature.intimidation %>
-				<tr>
-					<td>Intimidation</td>
-					<td><%= @creature.intimidation %></td>
-				</tr>
-			<% end %>
-			<% if @creature.performance %>
-				<tr>
-					<td>Performance</td>
-					<td><%= @creature.performance %></td>
-				</tr>
-			<% end %>
-			<% if @creature.persuasion %>
-				<tr>
-					<td>Persuasion</td>
-					<td><%= @creature.persuasion %></td>
-				</tr>
-			<% end %>
-			<th colspan="2">Damage Modifiers</th>
-			<% if @creature.damage_vulnerabilities.length > 0 %>
-				<tr>
-					<td>Damage Vulnerabilities</td>
-					<td><%= @creature.damage_vulnerabilities %></td>
-				</tr>
-			<% end %>
-			<% if @creature.damage_resistances.length > 0 %>
-				<tr>
-					<td>Damage Resistances</td>
-					<td><%= @creature.damage_resistances %></td>
-				</tr>
-			<% end %>
-			<% if @creature.damage_immunities.length > 0 %>
-				<tr>
-					<td>Damage Immunities</td>
-					<td><%= @creature.damage_immunities %></td>
-				</tr>
-			<% end %>
-			<% if @creature.condition_immunities.length > 0 %>
-				<tr>
-					<td>Condition Immunities</td>
-					<td><%= @creature.condition_immunities %></td>
-				</tr>
+			<% if @creature.has_damage_modifiers? %>
+				<th colspan="2">Damage Modifiers</th>
+				<% if @creature.damage_vulnerabilities.length > 0 %>
+					<tr>
+						<td>Damage Vulnerabilities</td>
+						<td><%= @creature.damage_vulnerabilities %></td>
+					</tr>
+				<% end %>
+				<% if @creature.damage_resistances.length > 0 %>
+					<tr>
+						<td>Damage Resistances</td>
+						<td><%= @creature.damage_resistances %></td>
+					</tr>
+				<% end %>
+				<% if @creature.damage_immunities.length > 0 %>
+					<tr>
+						<td>Damage Immunities</td>
+						<td><%= @creature.damage_immunities %></td>
+					</tr>
+				<% end %>
+				<% if @creature.condition_immunities.length > 0 %>
+					<tr>
+						<td>Condition Immunities</td>
+						<td><%= @creature.condition_immunities %></td>
+					</tr>
+				<% end %>
 			<% end %>
 			<th colspan="2">Miscellaneous</th>
 			<tr>
