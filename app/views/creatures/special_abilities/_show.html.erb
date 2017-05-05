@@ -2,17 +2,23 @@
 <strong><%= special_ability.name %></strong>
 <p><%= special_ability.desc %></p>
 <table>
-	<tr>
-		<td>Attack Bonus</td>
-		<td><%= special_ability.attack_bonus %></td>
-	</tr>
-	<tr>
-		<td>Damage Dice</td>
-		<td><%= special_ability.attack_bonus %></td>
-	</tr>
-	<tr>
-		<td>Damage Bonus</td>
-		<td><%= special_ability.damage_bonus %></td>
-	</tr>
+	<% if special_ability.attack_bonus > 0 %>
+		<tr>
+			<td>Attack Bonus</td>
+			<td><%= special_ability.attack_bonus %></td>
+		</tr>
+	<% end %>
+	<% if special_ability.damage_dice %>
+		<tr>
+			<td>Damage Dice</td>
+			<td><%= special_ability.damage_dice %></td>
+		</tr>
+	<% end %>
+	<% if special_ability.damage_bonus %>
+		<tr>
+			<td>Damage Bonus</td>
+			<td><%= special_ability.damage_bonus %></td>
+		</tr>
+	<% end %>
 </table>
 <br>
