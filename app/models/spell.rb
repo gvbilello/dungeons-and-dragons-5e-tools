@@ -1,3 +1,2 @@
 class Spell < ApplicationRecord
-
 end

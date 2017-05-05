@@ -6,9 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <!-- include general icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="container">
+	    <%= yield %>
+	  </div>
   </body>
 </html>
