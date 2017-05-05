@@ -80,7 +80,10 @@
 		</tr>
 	<% end %>
 </table>
-
-<%= link_to 'Previous Spell', spell_path(@spell.id - 1) %>
+<% unless @spell.id == 1 %>
+	<%= link_to 'Previous Spell', spell_path(@spell.id - 1) %>
+<% end %>
 <%= link_to 'Home', spells_path %>
-<%= link_to 'Next Spell', spell_path(@spell.id + 1) %>
+<% unless @spell.id == Spell.all.length %>
+	<%= link_to 'Next Spell', spell_path(@spell.id + 1) %>
+<% end %>

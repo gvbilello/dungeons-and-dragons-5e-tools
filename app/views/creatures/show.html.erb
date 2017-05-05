@@ -176,6 +176,10 @@
 	<% end %>
 <% end %>
 
-<%= link_to 'Previous Creature', creature_path(@creature.id - 1) %>
+<% unless @creature.id == 1 %>
+	<%= link_to 'Previous Creature', creature_path(@creature.id - 1) %>
+<% end %>
 <%= link_to 'Home', creatures_path %>
-<%= link_to 'Next Creature', creature_path(@creature.id + 1) %>
+<% unless @creature.id == Creature.all.length %>
+	<%= link_to 'Next Creature', creature_path(@creature.id + 1) %>
+<% end %>

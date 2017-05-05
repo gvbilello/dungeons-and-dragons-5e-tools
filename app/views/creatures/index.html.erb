@@ -1,1 +1,5 @@
 <!-- show all creatures -->
+<h1>All Creatures</h1>
+<% @creatures.each do |creature| %>
+	<p><%= link_to "#{creature.name}", creature_path(creature.id) %></p>
+<% end %>
