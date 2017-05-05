@@ -1,1 +1,181 @@
 <!-- show creature -->
+<h1><%= @creature.name %></h1>
+<table>
+	<tr>
+		<td>Type</td>
+		<td><%= @creature.creature_type %>
+	</td>
+	<tr>
+		<td>Subtype</td>
+		<td><%= @creature.subtype %>
+	</td>
+	<tr>
+		<td>Armor Class</td>
+		<td><%= @creature.armor_class %></td>
+	</tr>
+	<tr>
+		<td>Hit Points</td>
+		<td><%= @creature.hit_points %></td>
+	</tr>
+	<tr>
+		<td>Hit Dice</td>
+		<td><%= @creature.hit_dice %></td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td><%= @creature.speed %></td>
+	</tr>
+	<tr>
+		<td>Strength</td>
+		<td><%= @creature.strength %></td>
+	</tr>
+	<tr>
+		<td>Dexterity</td>
+		<td><%= @creature.dexterity %></td>
+	</tr>
+	<tr>
+		<td>Constitution</td>
+		<td><%= @creature.constitution %></td>
+	</tr>
+	<tr>
+		<td>Intelligence</td>
+		<td><%= @creature.intelligence %></td>
+	</tr>
+	<tr>
+		<td>Wisdom</td>
+		<td><%= @creature.wisdom %></td>
+	</tr>
+	<tr>
+		<td>Charisma</td>
+		<td><%= @creature.charisma %></td>
+	</tr>
+	<tr>
+		<td>Constitution Save</td>
+		<td><%= @creature.constitution_save %></td>
+	</tr>
+	<tr>
+		<td>Intelligence Save</td>
+		<td><%= @creature.intelligence_save %></td>
+	</tr>
+	<tr>
+		<td>Wisdom Save</td>
+		<td><%= @creature.wisdom_save %></td>
+	</tr>
+	<tr>
+		<td>Athletics</td>
+		<td><%= @creature.athletics %></td>
+	</tr>
+	<tr>
+		<td>Acrobatics</td>
+		<td><%= @creature.acrobatics %></td>
+	</tr>
+	<tr>
+		<td>Stealth</td>
+		<td><%= @creature.acrobatics %></td>
+	</tr>
+	<tr>
+		<td>Arcana</td>
+		<td><%= @creature.arcana %></td>
+	</tr>
+	<tr>
+		<td>History</td>
+		<td><%= @creature.history %></td>
+	</tr>
+	<tr>
+		<td>Investigation</td>
+		<td><%= @creature.investigation %></td>
+	</tr>
+	<tr>
+		<td>Nature</td>
+		<td><%= @creature.nature %></td>
+	</tr>
+	<tr>
+		<td>Religion</td>
+		<td><%= @creature.religion %></td>
+	</tr>
+	<tr>
+		<td>Insight</td>
+		<td><%= @creature.insight %></td>
+	</tr>
+	<tr>
+		<td>Medicine</td>
+		<td><%= @creature.medicine %></td>
+	</tr>
+	<tr>
+		<td>Perception</td>
+		<td><%= @creature.perception %></td>
+	</tr>
+	<tr>
+		<td>Survival</td>
+		<td><%= @creature.survival %></td>
+	</tr>
+	<tr>
+		<td>Deception</td>
+		<td><%= @creature.deception %></td>
+	</tr>
+	<tr>
+		<td>Intimidation</td>
+		<td><%= @creature.intimidation %></td>
+	</tr>
+	<tr>
+		<td>Performance</td>
+		<td><%= @creature.performance %></td>
+	</tr>
+	<tr>
+		<td>Persuasion</td>
+		<td><%= @creature.persuasion %></td>
+	</tr>
+	<tr>
+		<td>Damage Vulnerabilities</td>
+		<td><%= @creature.damage_vulnerabilities %></td>
+	</tr>
+	<tr>
+		<td>Damage Resistances</td>
+		<td><%= @creature.damage_resistances %></td>
+	</tr>
+	<tr>
+		<td>Damage Immunities</td>
+		<td><%= @creature.damage_immunities %></td>
+	</tr>
+	<tr>
+		<td>Condition Immunities</td>
+		<td><%= @creature.condition_immunities %></td>
+	</tr>
+	<tr>
+		<td>Senses</td>
+		<td><%= @creature.senses %></td>
+	</tr>
+	<tr>
+		<td>Languages</td>
+		<td><%= @creature.languages %></td>
+	</tr>
+	<tr>
+		<td>Challenge Rating</td>
+		<td><%= @creature.challenge_rating %></td>
+	</tr>
+</table>
+
+<% if @creature.special_abilities.length > 0 %>
+	<h2>Special Abilities</h2>
+	<% @creature.special_abilities.each do |special_ability| %>
+		<%= render partial: "creatures/special_abilities/show", locals: { special_ability: special_ability }, layout: false %>
+	<% end %>
+<% end %>
+
+<% if @creature.actions.length > 0 %>
+	<h2>Actions</h2>
+	<% @creature.actions.each do |action| %>
+		<%= render partial: "creatures/actions/show", locals: { action: action }, layout: false %>
+	<% end %>
+<% end %>
+
+<% if @creature.legendary_actions.length > 0 %>
+	<h2>Legendary Actions</h2>
+	<% @creature.legendary_actions.each do |legendary_action| %>
+		<%= render partial: "creatures/legendary_actions/show", locals: { legendary_action: legendary_action }, layout: false %>
+	<% end %>
+<% end %>
+
+<%= link_to 'Previous Creature', creature_path(@creature.id - 1) %>
+<%= link_to 'Home', creatures_path %>
+<%= link_to 'Next Creature', creature_path(@creature.id + 1) %>
