@@ -222,24 +222,30 @@
 
 	<div class="col s7">
 		<% if @creature.special_abilities.length > 0 %>
-			<h2>Special Abilities</h2>
+			<h4>Special Abilities</h4>
+		  <ul class="collapsible" data-collapsible="expandable">
 			<% @creature.special_abilities.each do |special_ability| %>
 				<%= render partial: "creatures/special_abilities/show", locals: { special_ability: special_ability }, layout: false %>
 			<% end %>
+			</ul>
 		<% end %>
 	 
 		<% if @creature.actions.length > 0 %>
-			<h2>Actions</h2>
+			<h4>Actions</h4>
+		  <ul class="collapsible" data-collapsible="expandable">
 			<% @creature.actions.each do |action| %>
 				<%= render partial: "creatures/actions/show", locals: { action: action }, layout: false %>
 			<% end %>
+			</ul>
 		<% end %>
 
 		<% if @creature.legendary_actions.length > 0 %>
-			<h2>Legendary Actions</h2>
+			<h4>Legendary Actions</h4>
+		  <ul class="collapsible" data-collapsible="expandable">
 			<% @creature.legendary_actions.each do |legendary_action| %>
 				<%= render partial: "creatures/legendary_actions/show", locals: { legendary_action: legendary_action }, layout: false %>
 			<% end %>
+			</ul>
 		<% end %>
 
 	</div>
