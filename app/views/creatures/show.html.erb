@@ -2,8 +2,8 @@
 <h1><%= @creature.name %></h1>
 <div class="row">
 	<div class="col s5">
+		<p>General Information</p>
 		<table class="bordered">
-			<th colspan="2">General Information</th>
 			<tr>
 				<td>Type</td>
 				<td><%= @creature.creature_type %></td>
@@ -13,6 +13,12 @@
 					<td>Subtype</td>
 					<td><%= @creature.subtype %>
 				</td>
+			<% end %>
+			<% if @creature.alignment %>
+				<tr>
+					<td>Alignment</td>
+					<td><%= @creature.alignment %></td>
+				</tr>
 			<% end %>
 			<tr>
 				<td>Armor Class</td>
@@ -30,32 +36,34 @@
 				<td>Speed</td>
 				<td><%= @creature.speed %></td>
 			</tr>
-			<th colspan="2">Ability Scores</th>
-			<tr>
-				<td>Strength</td>
-				<td><%= @creature.strength %></td>
-			</tr>
-			<tr>
-				<td>Dexterity</td>
-				<td><%= @creature.dexterity %></td>
-			</tr>
-			<tr>
-				<td>Constitution</td>
-				<td><%= @creature.constitution %></td>
-			</tr>
-			<tr>
-				<td>Intelligence</td>
-				<td><%= @creature.intelligence %></td>
-			</tr>
-			<tr>
-				<td>Wisdom</td>
-				<td><%= @creature.wisdom %></td>
-			</tr>
-			<tr>
-				<td>Charisma</td>
-				<td><%= @creature.charisma %></td>
-			</tr>
+		</table>
+			<!-- Ability Scores -->
+		<p>Ability Scores</p>
+		<table class="centered bordered">
+			<thead>
+				<tr>
+					<th>STR</th>
+					<th>DEX</th>
+					<th>CON</th>
+					<th>INT</th>
+					<th>WIS</th>
+					<th>CHR</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @creature.strength %></td>
+					<td><%= @creature.dexterity %></td>
+					<td><%= @creature.constitution %></td>
+					<td><%= @creature.intelligence %></td>
+					<td><%= @creature.wisdom %></td>
+					<td><%= @creature.charisma %></td>
+				</tr>
+			</tbody>
+		</table>
+			<!-- Saving Throws -->
 			<% if @creature.has_saving_throws? %>
+				<p>Saving Throws</p>
 				<th colspan="2">Saving Throws</th>
 				<% if @creature.constitution_save %>
 					<tr>
@@ -76,6 +84,9 @@
 					</tr>
 				<% end %>
 			<% end %>
+			<!-- CREATURE SKILLS -->
+			<!-- Only display Skills section if Creature has any -->
+			<!-- Only display individual Skills if Creature has that skill -->
 			<% if @creature.has_skills? %>
 				<th colspan="2">Skills</th>
 				<% if @creature.athletics %>
